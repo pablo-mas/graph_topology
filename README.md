@@ -77,7 +77,10 @@ python main.py
 ```
 
 
+# Repository structure
+The data from the U-Net inference should be stored in the data folder, in subfolders corresponding to each WSI. It is essential that the predictions are in **.npy** format with the following nomenclature : **wsi_name_xcoord_ycoord**. 
 
+The results will then be stored in folders with the name of the experiment defined in the configuration file. 
 
 
 <pre>
