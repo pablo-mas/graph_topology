@@ -116,4 +116,5 @@ The results will then be stored in folders with the name of the experiment defin
 │
 ├── config.yml                          <span style="color:green">// config file to modify </span> 
 ├── main.py                             <span style="color:green">// file to run </span>
-└── params.py                           <span style="color:green">// parameters files that process config's information </span>
+├── params.py                           <span style="color:green">// parameters file that process config's information </span>
+└── utils.py                            <span style="color:green">// useful functions </span>
