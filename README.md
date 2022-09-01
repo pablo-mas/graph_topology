@@ -38,8 +38,6 @@ WSI_ID : "all" # set to "all" or a list containing the index of the WSIs to proc
 
 MORPHOLOGICAL_PROPERTIES : ['centroid', 'area', 'perimeter','area_bbox', 'area_convex', 'axis_major_length', 'axis_minor_length', 'eccentricity', 'extent', 'solidity'] # check https://scikit-image.org/docs/stable/api/skimage.measure.html#skimage.measure.regionprops
 
-TOPOLOGICAL_PROPERTIES : []
-
 CENTROID_ID : False # Keep or not the centroid id in the csv files
 UNET_THRESHOLD : 0.5
 
@@ -75,6 +73,24 @@ Once the configuration file is ready, you just have to launch the main.py file.
 ```bash
 python main.py
 ```
+
+The extracted topological features from the graph are : 
+- [Order](https://networkx.org/documentation/networkx-1.9/reference/generated/networkx.Graph.order.html)
+- [Size](https://networkx.org/documentation/stable/reference/classes/generated/networkx.Graph.size.html)
+- [Diameter](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.distance_measures.diameter.html)
+- [Radius](https://networkx.org/documentation/networkx-1.10/reference/generated/networkx.algorithms.distance_measures.radius.html)
+- [Average shortest path length](https://networkx.org/documentation/networkx-1.10/reference/generated/networkx.algorithms.shortest_paths.generic.average_shortest_path_length.html)
+- [Density](https://networkx.org/documentation/stable/reference/generated/networkx.classes.function.density.html)
+- [Clique number](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.clique.graph_clique_number.html#networkx.algorithms.clique.graph_clique_number)
+- [Number of cliques](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.clique.graph_number_of_cliques.html#networkx.algorithms.clique.graph_number_of_cliques)
+- [Transitivity](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.cluster.transitivity.html)
+- [Local efficiency](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.efficiency_measures.local_efficiency.html#networkx.algorithms.efficiency_measures.local_efficiency)
+- [Global efficiency](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.efficiency_measures.global_efficiency.html#networkx.algorithms.efficiency_measures.global_efficiency)
+- [Degree](https://networkx.org/documentation/stable/reference/classes/generated/networkx.Graph.degree.html) (average, min, max and quantile[0.95, 0.75, 0.66, 0.5, 0.33, 0.20, 0.10])
+- [Clustering coefficient](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.cluster.clustering.html#networkx.algorithms.cluster.clustering) (average, min, max and quantile[0.95, 0.75, 0.66, 0.5, 0.33, 0.20, 0.10])
+- [Triangles](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.cluster.triangles.html) (average, min, max and quantile[0.95, 0.75, 0.66, 0.5, 0.33, 0.20, 0.10])
+- [Degree centralit](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.centrality.degree_centrality.html) (average, min, max and quantile[0.95, 0.75, 0.66, 0.5, 0.33, 0.20, 0.10])
+- [Closeness centrality](https://networkx.org/documentation/networkx-1.10/reference/generated/networkx.algorithms.centrality.closeness_centrality.html) (average, min, max and quantile[0.95, 0.75, 0.66, 0.5, 0.33, 0.20, 0.10])
 
 
 # Repository structure
