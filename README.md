@@ -107,7 +107,7 @@ The results will then be stored in folders with the name of the experiment defin
 │   │   └── ...
 │   ├── wsi_2 
 │   └── wsi_3
-├─ results                              <span style="color:green">// folder containing U-Net's inference data </span>    
+├─ results                              <span style="color:green">// contains csv and images </span>    
 │   ├── exp_1  
 │   │   ├── csv  
 │   │   │   ├── morphology                         

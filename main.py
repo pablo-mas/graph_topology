@@ -18,11 +18,8 @@ from utils import plot_centroids, plot_graph, compute_graph, extract_graph_topol
 if __name__ == "__main__":
     
     os.makedirs(RESULTS_PATH, exist_ok=True)
-    os.makedirs(RESULTS_PATH, exist_ok=True)
     os.makedirs(MORPHOLOGICAL_CSV_PATH, exist_ok=True)
     os.makedirs(TOPOLOGICAL_CSV_PATH, exist_ok=True)
-    os.makedirs(VISUALIZATION_WSI_PATH, exist_ok=True)
-    os.makedirs(VISUALIZATION_GRAPH_PATH, exist_ok=True)
     
     if WSI_ID == "all":
         predictions_paths = sorted(glob.glob(DATA_PATH + "/*"))
@@ -71,9 +68,10 @@ if __name__ == "__main__":
         df_morphology.to_csv(os.path.join(MORPHOLOGICAL_CSV_PATH, f'morphology_{wsi_name}.csv'), index=False) # save dataframe with all the morphological features of one wsi
 
         if GRAPH['dropout'] > 0:
-            df_morphology = df_morphology.sample(frac=GRAPH['dropout'])      
+            df_morphology = df_morphology.sample(frac=1-GRAPH['dropout'])      
               
         if VISUALIZATION_CENTROID['active']:
+            os.makedirs(VISUALIZATION_WSI_PATH, exist_ok=True)
             plot_centroids(df=df_morphology,
                            wsi_name=wsi_name,
                            save_path=VISUALIZATION_WSI_PATH,
@@ -89,6 +87,7 @@ if __name__ == "__main__":
         df_topology.to_csv(os.path.join(TOPOLOGICAL_CSV_PATH, f'topology_{EXPERIMENT_NAME}.csv'), index=False) # save dataframe with all the morphological features of one wsi
         
         if VISUALIZATION_GRAPH['active']:
+            os.makedirs(VISUALIZATION_GRAPH_PATH, exist_ok=True)
             plot_graph(G=G, 
                        pos=pos, 
                        wsi_name=wsi_name,
